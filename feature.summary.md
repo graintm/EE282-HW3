@@ -13,6 +13,7 @@ wget -O ~/EE282/HW3/data/raw/Dmel.annotation.gtf.gz -q ftp://ftp.flybase.org/gen
 md5sum Dmel.annotation.gtf.gz > Dmel.annotation.md5.txt
 
 cd ~/EE282/HW3/data/raw
+gunzip Dmel.annotation.gtf.gz
 cut -f 3 Dmel.annotation.gtf | sort -d | uniq > ~/EE282/HW3/data/processed/genomefeatures.txt
 
 cut -f 3 Dmel.annotation.gtf \
