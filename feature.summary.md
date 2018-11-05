@@ -1,4 +1,4 @@
-## The following script dowloads the _D. melanogaster_ annotation file from flybase.org, checks its integrity, and prints a report listing the total number of genomic features of each type from most to least common:
+## The following script downloads the _D. melanogaster_ annotation file from flybase.org, checks its integrity, and prints a report listing the total number of genomic features of each type from most to least common:
 ```
 #!/usr/bin/env bash
 module load perl
