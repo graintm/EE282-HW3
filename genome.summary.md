@@ -31,7 +31,7 @@ cd ~/EE282/HW3/data/raw
 gunzip Dmel.allchromosomes.fasta.gz 
 grep -v "^>" Dmel.allchromosomes.fasta \
 | tr -cd N \
-| wc -c > Dmel.Ncount.txt
+| wc -c > ~/EE282/HW3/data/processed/Dmel.Ncount.txt
 
 #To find total number of sequences
 grep "^>" Dmel.allchromosomes.fasta \
