@@ -19,7 +19,7 @@ faSize -detailed ~/EE282/HW3/data/raw/Dmel.allchromosomes.fasta.gz > ~/EE282/HW3
 sort -rnk 2,2  ~/EE282/HW3/data/processed/Dmel.allchromosomes.sized.txt > ~/EE282/HW3/data/processed/Dmel.allchromosomes.sized.sorted.txt
 
 #To find total number of nucleotides
-cd data/processed
+cd ~/EE282/HW3/data/processed
 cut -f 2 ~/EE282/HW3/data/processed/Dmel.allchromosomes.sized.sorted.txt \
 | head -7 \
 | cut -f 2 \
@@ -27,7 +27,7 @@ cut -f 2 ~/EE282/HW3/data/processed/Dmel.allchromosomes.sized.sorted.txt \
 | bc > Dmel.bpcount.txt
 
 #To find total number of Ns
-cd data/raw
+cd ~/EE282/HW3/data/raw
 gunzip Dmel.allchromosomes.fasta.gz 
 grep -v "^>" Dmel.allchromosomes.fasta \
 | tr -cd N \
@@ -38,3 +38,34 @@ grep "^>" Dmel.allchromosomes.fasta \
 | tr -cd ">" \
 | wc -c > ~/EE282/HW3/data/processed/Dmel.sequencecount.txt
 ```
+### Genome size in bp
+The first section of the script:
+```
+cd ~/EE282/HW3/data/processed
+cut -f 2 ~/EE282/HW3/data/processed/Dmel.allchromosomes.sized.sorted.txt \
+| head -7 \
+| cut -f 2 \
+| paste -sd+ - \
+| bc > Dmel.bpcount.txt
+```
+provides the following output (found in the Dmel.bpcount.txt file): 137547960 bp
+
+### N count
+The second section:
+```
+cd ~/EE282/HW3/data/raw
+gunzip Dmel.allchromosomes.fasta.gz 
+grep -v "^>" Dmel.allchromosomes.fasta \
+| tr -cd N \
+| wc -c > ~/EE282/HW3/data/processed/Dmel.Ncount.txt
+```
+provides the following output: 1152978
+
+### Sequence count
+The third second:
+```
+grep "^>" Dmel.allchromosomes.fasta \
+| tr -cd ">" \
+| wc -c > ~/EE282/HW3/data/processed/Dmel.sequencecount.txt
+```
+provides the following output: 1870
