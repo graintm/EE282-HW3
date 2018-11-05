@@ -1,4 +1,4 @@
-## This script with summarize the _D. melanogaster_ genome by downloading it, checking its integrity, and creating three files which provide information about the nucleotide content.
+## This script will summarize the _D. melanogaster_ genome by downloading it, checking its integrity, and creating three files which provide information about the nucleotide content.
 
 ```
 #!/usr/bin/env bash
