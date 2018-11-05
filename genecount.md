@@ -12,6 +12,7 @@ wget -O ~/EE282/HW3/data/raw/Dmel.annotation.gtf.gz -q ftp://ftp.flybase.org/gen
 md5sum Dmel.annotation.gtf.gz > Dmel.annotation.md5.txt
 
 cd ~/EE282/HW3/data/raw
+gunzip Dmel.annotation.gtf.gz
 touch chromosomes.txt
 echo -e "X \nY \n2L \n2R \n3L \n3R \n4" > chromosomes.txt
 
