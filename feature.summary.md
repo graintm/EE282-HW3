@@ -106,3 +106,7 @@ pre_miRNA    262
 rRNA         115
 snRNA        32
 ```
+
+### Comments
+
+This works, but your life would be made far easier with the ```uniq -c``` command. If you simply added the ```-c``` switch (for **count**), then you'd have the same results.
