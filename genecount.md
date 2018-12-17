@@ -66,3 +66,30 @@ Y       113
 3R      4202
 4       111
 ```
+
+### Comments
+
+Mostly O.K.
+
+It's essential to download the pre-computed checksum to compare against. Then the easiest way to check is to use ```md5sum -c``` against the checksum file you downloaded (md5sum.txt in this case). It will automatically go through files listed in it and compute / compare the checksums.
+
+```
+$ wget ftp://ftp.flybase.net/genomes/Drosophila_melanogaster/current/gtf/md5sum.txt
+$ wget ftp://ftp.flybase.net/genomes/Drosophila_melanogaster/current/gtf/dmel-all-r6.24.gtf.gz
+$ md5sum dmel-all-r6.24.gtf.gz 
+5cd5dcfbfff952ea7ce89e26cba89bbd  dmel-all-r6.24.gtf.gz
+
+$ md5sum -c md5sum.txt
+dmel-all-r6.24.gtf.gz: OK
+```
+
+Also, your life would be made easier using the ```-c``` switch with uniq. I also used ```awk``` instead of ```cut -f```:
+
+```
+awk ' $3 == "gene" { print $1 } ' Dmel.annotation.gtf \
+| sort \
+| uniq -c \
+| sort -rnk1,1 \
+| head -7 \
+> genecount.txt
+```
