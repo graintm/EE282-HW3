@@ -50,6 +50,8 @@ cut -f 2 ~/EE282/HW3/data/processed/Dmel.allchromosomes.sized.sorted.txt \
 ```
 provides the following output (found in the Dmel.bpcount.txt file): 137547960 bp
 
+### This is actually not the correct number of nucleotides... If you just use faSize on your assembly, you can get the correct number. You get an A for trying though. This is much more difficult than just using faSize, but you want to stay clear of having to reinvent the wheel. It is good to double check results though of course. fyi you are shy the # of tn's by 6,178,042 or 4.3%
+
 ### N count
 The second section:
 ```
